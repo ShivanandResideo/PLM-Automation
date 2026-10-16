@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="26.95" tests="1" skipped="0" failures="1" errors="0">
+<testcase classname="Test to Create Items" name="Create items and check attributes - #1.1" time="26.781">
+<failure type="java.lang.AssertionError" message="Some element which was expected is not found. Failing the test. Screenshot taken with file name301917_file_automation-1740035622324">
+<![CDATA[java.lang.AssertionError: Some element which was expected is not found. Failing the test. Screenshot taken with file name301917_file_automation-1740035622324
+	at org.junit.Assert.fail(Assert.java:89)
+	at stepDefinitions.CreateClassSteps.createItem(CreateClassSteps.java:49)
+	at ✽.user tries to create Battery item with PUOM as EACH [EA] partGenMtd as 0 existing family as NA Option as NA version as NA Legacy NA LOB as Common/Shared DA as CZ52 - Brno CC as Custom for NA(file:///C:/Users/301917a/Cucumber/PLM_Automation/src/test/java/features/item.feature:6)
+]]>
+</failure>
+<system-out><![CDATA[
+Given the 301917 user login is successful...................................passed
+When user tries to create Battery item with PUOM as EACH [EA] partGenMtd as 0 existing family as NA Option as NA version as NA Legacy NA LOB as Common/Shared DA as CZ52 - Brno CC as Custom for NA.failed
+Then edit item page is to be reached with all relevant attributes...........skipped
+]]></system-out>
+</testcase>
+</testsuite>

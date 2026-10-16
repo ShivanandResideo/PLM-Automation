@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.OraclePLM.Automation</groupId>
+    <artifactId>PLM_Automation</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>7.20.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.mkolisnyk</groupId>
+            <artifactId>cucumber-runner</artifactId>
+            <version>1.3.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>7.20.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.27.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>6.1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.4.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+            <version>2.12.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ru.yandex.qatools.ashot</groupId>
+            <artifactId>ashot</artifactId>
+            <version>1.5.4</version>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>tech.grasshopper</groupId>-->
+<!--            <artifactId>extentreports-cucumber7-adapter</artifactId>-->
+<!--            <version>1.14.0</version>-->
+<!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20250107</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.masterthought</groupId>
+            <artifactId>maven-cucumber-reporting</artifactId>
+            <version>2.8.0</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.2</version>
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <systemProperties>
+                        <property>
+                            <name>parameter</name>
+                            <value>check</value>
+                        </property>
+                        <property>
+                            <name>testPlanName</name>
+                            <!--suppress UnresolvedMavenProperty -->
+                            <value>${testPlanName}</value>
+                        </property>
+                    </systemProperties>
+                    <systemPropertyVariables>
+                        <parameter1>check</parameter1>
+                        <!--#// working -->
+                    </systemPropertyVariables>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>2.8.0</version>
+                <executions>
+                    <execution>
+                        <id>execution</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>PLM_Automation</projectName>
+                            <outputDirectory>${project.build.directory}/cucumber-report-html</outputDirectory>
+                            <cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- #// not working -->
+        <propertyName>propertyValue</propertyName>
+        <parameter>check</parameter>
+    </properties>
+
+</project>
